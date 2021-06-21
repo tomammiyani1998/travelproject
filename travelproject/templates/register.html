@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+        background-color: #F3EBF6;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    .main {
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 550px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+
+    .sign {
+        padding-top: 40px;
+        color: #8C55AA;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+
+    .box {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+
+    form.form1 {
+        padding-top: 40px;
+    }
+
+    .box:focus{
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+    }
+
+    .submit {
+     cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, #9C27B0, #E040FB);
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        margin-top: 10%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <p class="sign" align="center">Registration</p>
+    <form class="form1" action="register" method="post">
+        {% csrf_token %}
+        <input class="box" type="text" align="center" placeholder="Username" name="username">
+        <input class="box" type="text" align="center" placeholder="First Name" name="first_name">
+        <input class="box" type="text" align="center" placeholder="Last Name" name="last_name">
+        <input class="box" type="email" align="center" placeholder="Email" name="email">
+        <input class="box" type="password" align="center" placeholder="Password" name="password">
+        <input class="box" type="password" align="center" placeholder="Confirm Password" name="password1">
+        <input class="submit" type="submit">
+    </form>
+    </div>
+{%for msg in messages%}
+<h4 align="center">{{msg}}</h4>
+{%endfor%}
+</body>
+</html>
